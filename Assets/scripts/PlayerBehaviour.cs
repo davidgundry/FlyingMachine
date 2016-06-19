@@ -30,7 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Awake()
     {
-        MoveSpeed = 300;
+        MoveSpeed = 200;
         rb = GetComponent<Rigidbody2D>();
         GameController = GameObject.FindObjectOfType<GameController>();
     }
@@ -84,32 +84,32 @@ public class PlayerBehaviour : MonoBehaviour
     private void AddPassiveForces()
     {
         if (GravityEnabled)
-            rb.AddForce(new Vector2(0, -20) * Time.deltaTime);
+            rb.AddForce(new Vector2(0, -25) * Time.deltaTime);
     }
 
     private void AddActiveForces()
     {
-        rb.AddForce(new Vector2(150, 0) * Input.acceleration.x * Time.deltaTime);
+        //rb.AddForce(new Vector2(150, 0) * Input.acceleration.x * Time.deltaTime);
 
-        if (Input.GetKey("left"))
+        if ((Input.GetKey("left")) || (Input.acceleration.x  < -0.1f))
             rb.AddForce(new Vector2(-1, 0) * MoveSpeed * Time.deltaTime);
 
-        if (Input.GetKey("right"))
+        if ((Input.GetKey("right")) || (Input.acceleration.x  > 0.1f))
             rb.AddForce(new Vector2(1, 0) * MoveSpeed * Time.deltaTime);
 
         if (SpeechEnabled)
         {
             if (forceTime > 0)
             {
-                if (forceTime > 0.25f)
-                    rb.AddForce(new Vector2(0, 1f) * 60 * Time.deltaTime);
+                if (forceTime > 0.1f)
+                    rb.AddForce(new Vector2(0, 1f) * 70 * Time.deltaTime);
                 else
                     rb.AddForce(new Vector2(0, 1f) * 50 * Time.deltaTime);
                 forceTime -= Time.deltaTime;
             }
 
-            if (Input.GetKeyDown("up"))
-                Thrust();
+            //if (Input.GetKeyDown("up"))
+            //    Thrust();
         }
     }
 

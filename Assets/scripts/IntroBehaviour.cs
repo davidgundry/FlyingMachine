@@ -15,14 +15,15 @@ public class IntroBehaviour : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         MainCamera = GameObject.FindObjectOfType<Camera>();
 
         ConversationBehaviour = GameObject.FindObjectOfType<ConversationBehaviour>();
         IntroConv = new Conversation();
         IntroConv.Add(new DelegateLine(delegate() { StartCoroutine(MoveCamera(new Vector3(0, 2f, MainCamera.transform.position.z),0.2f)); }));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "London, 1903", 2f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Sound, "Doctor Allophone's Workshop", 2f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 1f));
+        //IntroConv.Add(new DialogueLine(SpeakerType.Sound, "Doctor Allophone's Workshop", 2f));
+        IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 3f));
         IntroConv.Add(new DelegateLine(delegate() { CameraShake = 1f; }));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.1f));
         IntroConv.Add(new DelegateLine(delegate() { CameraShake = 0f; }));
@@ -35,13 +36,13 @@ public class IntroBehaviour : MonoBehaviour {
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 1f));
         IntroConv.Add(new DialogueLine(SpeakerType.Professor, "I've done it!", 1.5f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.5f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "At last, my flying machine is complete!", 1.5f));
+        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "At last, my flying machine is complete!", 2f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.5f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Go and pull that lever!", 1.5f));
+        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Go and pull that lever!", 2f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.25f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Player, "Are you sure this will work?", 1.5f));
+        IntroConv.Add(new DialogueLine(SpeakerType.Player, "Are you sure this will work?", 2f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.25f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "It's my greatest invention! Of course it will work!", 1.5f));
+        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "It's my greatest invention! Of course it will work!", 2f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.3f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "*clunk*", 1));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.5f));
@@ -52,7 +53,7 @@ public class IntroBehaviour : MonoBehaviour {
         IntroConv.Add(new DelegateLine(delegate() { CameraShake = 0.2f; }));
         IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Look out!", 0.5f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "*crash*", 1));
-        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Oh no! It's going to...", 0.01f));
+        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Oh no! It's going to...", 0.05f));
         IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Not that stack of papers!", 0.2f));
         IntroConv.Add(new DelegateLine(delegate() { CameraShake = 0.5f; }));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "*smash*", 1));
@@ -62,10 +63,7 @@ public class IntroBehaviour : MonoBehaviour {
         IntroConv.Add(new DialogueLine(SpeakerType.Professor, "My inventions!", 2f));
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.25f));
         IntroConv.Add(new DialogueLine(SpeakerType.Professor, "Quick! Into the flying machine!\nGet my designs back before they blow away!", 3f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.5f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Player, "Are you sure this is safe?", 1.5f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.1f));
-        IntroConv.Add(new DialogueLine(SpeakerType.Professor, "No time for thinking about yourself, science is at stake!", 2f));
+
         IntroConv.Add(new DialogueLine(SpeakerType.Sound, "", 0.5f));
         IntroConv.Add(new DelegateLine(delegate() { Application.LoadLevel("main"); }));
         ConversationBehaviour.StartConversation(IntroConv);

@@ -11,6 +11,7 @@ public class Launcher : MonoBehaviour {
     void Start()
     {
         DontDestroyOnLoad(this);
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         
         StartTime = Time.time;
     }

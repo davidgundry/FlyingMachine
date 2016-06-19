@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         PlayerBehaviour = GameObject.FindObjectOfType<PlayerBehaviour>();
         ConversationBehaviour = GameObject.FindObjectOfType<ConversationBehaviour>();
         ScoreText = GameObject.Find("ScoreText").GetComponent<Text>();
@@ -31,25 +32,25 @@ public class GameController : MonoBehaviour
         microphoneController.microphoneActive = true;
 
         Conversation startConvo = new Conversation();
-        /*startConvo.Add(new GamePauseLine(true));
+        startConvo.Add(new GamePauseLine(true));
         startConvo.Add(new DelegateLine(delegate() { PlayerBehaviour.GravityEnabled = false; PlayerBehaviour.SpeechEnabled = false; StartCoroutine(IntroAnimation()); }));
         startConvo.Add(new DialogueLine(SpeakerType.Professor, "It works!",2));
         startConvo.Add(new DialogueLine(SpeakerType.Sound, "", 2));
         startConvo.Add(new GamePauseLine(false));
-        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Right. See that thing you're holding? Turn that to move left and right.",3));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Right. See that thing you're holding? Turn that to move left and right.",4));
         startConvo.Add(new DialogueLine(SpeakerType.Professor, "Or you can use my new invention, the QWERTY keyboard.", 2));
-        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Use the left and right arrow keys.", 2));*/
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Use the left and right arrow keys.", 3));
         startConvo.Add(new DelegateLine(delegate() { PlayerBehaviour.GravityEnabled = true; }));
-        //startConvo.Add(new DialogueLine(SpeakerType.Professor, "Look out! You're falling", 0.2f));
-        //startConvo.Add(new DialogueLine(SpeakerType.Professor, "The flying machine is powered by words. Say something quick!", 0.1f));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Look out! You're falling", 0.2f));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "The flying machine is powered by words. Say something quick!", 0.1f));
         startConvo.Add(new DelegateLine(delegate() { PlayerBehaviour.SpeechEnabled = true; }));
-        //startConvo.Add(new DialogueLine(SpeakerType.Sound, "Doc: The flying machine is powered by words. Say something quick!", 2f));
-        //startConvo.Add(new DialogueLine(SpeakerType.Professor, "My patented phono-motor converts speech into motion.", 0.4f));
-        //startConvo.Add(new DialogueLine(SpeakerType.Professor, "The more ridiculous a phrase, the more thrust the phono-motor can generate.", 0.4f));
-        //startConvo.Add(new DialogueLine(SpeakerType.Professor, "Don't worry! I compiled a dictionary of ridiculous phrases for just such an occasion!", 0.4f));
-        //startConvo.Add(new DialogueLine(SpeakerType.Professor, "Now where did I put it?...", 1f));
+        startConvo.Add(new DialogueLine(SpeakerType.Sound, "Doc: The flying machine is powered by words. Say something quick!", 2f));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "My patented phono-motor converts speech into motion.", 2f));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "The more ridiculous a phrase, the more thrust the phono-motor can generate.", 2f));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Don't worry! I compiled a dictionary of ridiculous phrases for just such an occasion!", 2f));
+        startConvo.Add(new DialogueLine(SpeakerType.Professor, "Now where did I put it?...", 1.5f));
         startConvo.Add(new DelegateLine(delegate() { CreateBlueprints(); }));
-        //startConvo.Add(new DialogueLine(SpeakerType.Sound, " ", 1f));
+        startConvo.Add(new DialogueLine(SpeakerType.Sound, " ", 1f));
         startConvo.Add(new DelegateLine(delegate() { ConversationBehaviour.StartConversation(new RandomSuggestionConversation()); } ));
         ConversationBehaviour.StartConversation(startConvo);
 

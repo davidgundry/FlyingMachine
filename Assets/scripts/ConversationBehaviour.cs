@@ -47,19 +47,20 @@ public class ConversationBehaviour : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyUp("space"))
+        /*if (Input.GetKeyUp("space"))
         {
             if (ShowTextCoroutine != null)
                 HurryConversation();
             else if (Conversation.WaitingForPlayer)
                 MoveOnConversation();
-        }
+        }*/
 
 
         if (SpeechEventsSinceTextChange > 2)
         {
             SpeechEventsSinceTextChange = 0;
-            StartCoroutine(WaitThenMoveOnConversation(1f));
+            if (Conversation.GetType() == typeof(RandomSuggestionConversation))
+                StartCoroutine(WaitThenMoveOnConversation(1f));
         }
 
     }

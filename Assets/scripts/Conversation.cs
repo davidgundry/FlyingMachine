@@ -69,14 +69,14 @@ public class Conversation
 
 public class RandomSuggestionConversation : Conversation
 {
-    private static readonly string[] intro = { "Oh, it's my", "You've found my", "Look, it's my", "Ah! My design for a", "I wondered where I put that", };
-    private static readonly string[] segment1 = { "steam-powered","authentic", "anti-garotting","reversable","replacable"};
-    private static readonly string[] segment2 = { "noodle", "hat", "safety", "electric", "walking stick", "fire", "horse", "hair", "sausage" };
-    private static readonly string[] segment3 = { "cannon", "repellant", "wax", "extender", "lamp", "pump", "engine", "gun", "replacer", "crayons", "matches", "measurer","extruder" };
+    private static readonly string[] intro = { "Oh, it's my", "You've found my", "Look, it's my", "Ah! My design for the", "I wondered where I put that", "Here's the", "Yes! The" };
+    private static readonly string[] segment1 = { "steam-powered","authentic", "anti-garotting","reversable","replacable","electric","coal-fired", "safety","reversable"};
+    private static readonly string[] segment2 = { "noodle", "hat", "walking stick", "horse", "hair", "sausage","dynamite","trouser","fish","coal", "lamp","automobile","shoe"};
+    private static readonly string[] segment3 = { "cannon", "repellant", "wax", "extender", "pump", "engine", "gun", "replacer", "recycler", "measurer","extruder","divider","combiner","press","slicer","propeller","painter","insulter","grinder","paste","straighter" };
 
-    private static readonly string[] suggestion1 = { "fish-flavoured", "exotic", "fantastic" };
-    private static readonly string[] suggestion2 = { "giant", "explosive", "purple-haired"};
-    private static readonly string[] suggestion3 = { "lizard", "banana", "platypus"};
+    private static readonly string[] suggestion1 = { "exotic", "fantastic", "edacious","kenspeckle","pyroclastic","lesser","greater","dire","miniture"};
+    private static readonly string[] suggestion2 = { "giant", "explosive", "purple-haired", "canorous", "cerulean","comminatory","cyanic","deedy","habile","luculent","paludal","retiform","splanchnic","tellurian","toplofty"};
+    private static readonly string[] suggestion3 = { "banana", "platypus","donkey engine","doryphore","frondeur","furuncle","galligaskins","illywhacker","jumbuck","nugacity","walrus","opsimath","periapt","pooter","sternutator","winebibber",};
 
     public override ConversationLine GetNextLine()
     {

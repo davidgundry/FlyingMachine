@@ -7,6 +7,8 @@ Recover an inventor's bizarre inventions by taking to the sky in his new flying 
 
 >Note: This was built for the Unity Web Player which is no longer supported. The APK for Android is out of date but still seems to work.
 
+https://user-images.githubusercontent.com/1508862/216830965-90d7a2a5-3cfe-4190-b7de-e63e7933ee18.mp4
+
 ## Screenshots
 
 ![](./img/cover.png)
